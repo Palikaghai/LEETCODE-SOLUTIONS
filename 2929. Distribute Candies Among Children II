@@ -1,0 +1,12 @@
+class Solution {
+    public long distributeCandies(int n, int limit) {
+        long count = 0;
+        for (int x = Math.max(0, n - 2 * limit); x <= Math.min(limit, n); x++) {
+            int remaining = n - x;
+            int minY = Math.max(0, remaining - limit);
+            int maxY = Math.min(limit, remaining);
+            count += (long)(maxY - minY + 1);
+        }
+        return count;
+    }
+}
